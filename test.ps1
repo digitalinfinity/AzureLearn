@@ -2,7 +2,7 @@ $adsi = [ADSI]"WinNT://$Env:Computername"
 $Users = $adsi.Children  | where {$_.SchemaClassName  -eq 'user'}
 $shinobiUser = $users | Where-Object { $_.Name -eq "chakrashinobi" }
 if ($shinobiUser -ne $null) {
-    $packages = get-appxpackage
+    $packages = get-appxpackage -AllUsers
     $packages | Format-List
     $edgePackage = $packages | where { $_.Name -eq "Microsoft.MicrosoftEdge" }
     $appLocalPath = Join-Path -Path $edgePackage.InstallLocation -ChildPath "microsoft.system.package.metadata\Application.Local"
