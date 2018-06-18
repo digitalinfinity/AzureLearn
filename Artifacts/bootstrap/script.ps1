@@ -25,13 +25,12 @@ New-ItemProperty -Path $winlogonKey -Name "DefaultUserName" -Value $localAdminUs
 New-ItemProperty -Path $winlogonKey -Name "DefaultPassword" -Value $localAdminPassword -Force
 New-ItemProperty -Path $winlogonKey -Name "AutoAdminLogon" -Value "1" -Force
 
-$shinobiRoot = "C:\Shinobi"
-New-Item -ItemType Directory -Path $shinobiRoot -Force
+# TODO: Change this?
+$shinobiRoot = "C:\Repos\AzureLearn"
+if (!(Test-Path $shinobiRoot)) {
+    Write-Error "Machine is in unexpected state- shinobiRoot doesn't exist"
+}
 
-$agentRoot = "{0}\agent" -f $PSScriptRoot
-
-Copy-Item -Path $agentRoot -Recurse -Destination $shinobiRoot -Container
-
-$shinobiAgentCommand = '"C:\Program Files\nodejs\node.exe" {0}\agent\build\agent.js' -f $shinobiRoot
+$shinobiAgentCommand = '"C:\Program Files\nodejs\node.exe" {0}\Artifacts\bootstrap\agent\build\agent.js' -f $shinobiRoot
 New-ItemProperty -Path $runKey -Name "ShinobiAgent" -Value $shinobiAgentCommand -Force
 
