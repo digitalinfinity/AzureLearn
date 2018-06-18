@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Chakra-Shinobi-Bootstrap",
+    "description": "Bootstrap script for Shinobi VMs",
+    "iconUri": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Artifacts/windows-run-powershell/powershell.png",
+    "targetOsType": "Windows",
+    "parameters": {
+      "LocalAdminUsername": {
+        "type": "string",
+        "displayName": "Local Admin Username",
+        "description": "Username for the local admin account"
+      },
+      "LocalAdminPassword": {
+        "type": "string",
+        "displayName": "Local Admin Password",
+        "description": "Password for the local admin account"
+      }
+    },
+    "runCommand": {
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"&', ' ./script.ps1 -localAdminUsername ', parameters('LocalAdminUsername'), ' -localAdminPassword', parameters('LocalAdminPassword'), '\"')]"
+    }
+  }
