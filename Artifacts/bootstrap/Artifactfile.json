@@ -17,6 +17,6 @@
       }
     },
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"&', ' ./script.ps1 -localAdminUsername ', parameters('LocalAdminUsername'), ' -localAdminPassword', parameters('LocalAdminPassword'), '\"')]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"&', ' ./script.ps1 -localAdminUsername ', parameters('LocalAdminUsername'), ' -localAdminPassword ', parameters('LocalAdminPassword'), '\"')]"
     }
   }
