@@ -26,7 +26,7 @@ New-ItemProperty -Path $winlogonKey -Name "DefaultPassword" -Value $localAdminPa
 New-ItemProperty -Path $winlogonKey -Name "AutoAdminLogon" -Value "1" -Force
 
 $shinobiRoot = "C:\Shinobi"
-New-Item -Path $shinobiRoot -Force
+New-Item -ItemType Directory -Path $shinobiRoot -Force
 
 $agentRoot = "{0}\agent" -f $PSScriptRoot
 
