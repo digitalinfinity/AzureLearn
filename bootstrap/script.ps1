@@ -25,5 +25,5 @@ New-ItemProperty -Path $winlogonKey -Name "DefaultUserName" -Value $localAdminUs
 New-ItemProperty -Path $winlogonKey -Name "DefaultPassword" -Value $localAdminPassword -Force
 New-ItemProperty -Path $winlogonKey -Name "AutoAdminLogon" -Value "1" -Force
 
-$shinobiAgentCommand = '"C:\Program Files\nodejs\node" {0}\agent\build\agent.js' -f $PSScriptRoot
+$shinobiAgentCommand = '"C:\Program Files\nodejs\node.exe" {0}\agent\build\agent.js' -f $PSScriptRoot
 New-ItemProperty -Path $runKey -Name "ShinobiAgent" -Value $shinobiAgentCommand -Force

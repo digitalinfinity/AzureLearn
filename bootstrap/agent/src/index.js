@@ -1,7 +1,11 @@
-var prompt = require('prompt');
+const readline = require('readline');
 
-prompt.start();
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-prompt.get(['input'], function (err, result) {
-  console.log('Received input: ' + result.input);
+rl.question('Script to run: ', (script) => {
+  console.log(`Script to run is ${script}`);
+  rl.close();
 });
