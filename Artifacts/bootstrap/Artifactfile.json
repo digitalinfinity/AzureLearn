@@ -18,5 +18,10 @@
     },
     "runCommand": {
         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"&', ' ./script.ps1 -localAdminUsername ', parameters('LocalAdminUsername'), ' -localAdminPassword ', parameters('LocalAdminPassword'), '\"')]"
-    }
+    },
+    "postDeployActions": [
+      {
+        "action": "restart"
+      }
+    ]
   }
